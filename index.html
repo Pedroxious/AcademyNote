@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Note Boarding</title>
+  <link rel="stylesheet" href="src/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+  <header class="kanban-header">
+    <div class="header-left">
+      <img src="src/images/logo.png" alt="Logo" class="logo">
+      <h1>AcademyNote</h1>
+    </div>
+    <div class="header-right">
+      <a href="#" class="header-btn active"><i class="fas fa-home"></i> Início</a>
+      <button id="theme-toggle" class="header-btn"><i class="fas fa-moon"></i> Modo Escuro</button>
+      <a href="#" class="header-btn"><i class="fas fa-calendar"></i> Agenda</a>
+      <div class="user-menu">
+        <img src="src/images/profile2.jpg" alt="Usuário" class="user-avatar">
+        <span>Você</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="notification-center">
+    <div class="notification">Nova mensagem de Rafael</div>
+    <div class="notification">Laura reagiu ao seu comentário</div>
+  </div>
+
+  <main class="kanban">
+    <!-- Pendentes -->
+    <div class="kanban-column" data-id="1">
+      <div class="kanban-title">
+        <h2>Pendentes</h2>
+        <span class="column-count">2</span>
+        <button class="add-card"><i class="fa-solid fa-plus"></i></button>
+      </div>
+      <div class="kanban-cards">
+        <div class="kanban-card" draggable="true" data-id="1">
+          <div class="card-header">
+            <span class="priority high">Alta Prioridade</span>
+            <span class="deadline">Vence hoje</span>
+          </div>
+          <h3>Corrigir problema na dash</h3>
+          <p>@Rafael, task do dashboard premium parada. Financeiro cobrando.</p>
+          <div class="card-tags">
+            <span class="tag">Dashboard</span>
+            <span class="tag">Urgente</span>
+          </div>
+          <div class="card-footer">
+            <div class="user-info">
+              <img src="src/images/profile6.jpg" alt="User">
+              <span>Lucas Almeida</span>
+            </div>
+            <div class="reactions">
+              <span class="reaction-count">3</span>
+              <button class="reaction-btn" data-card="1"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+          
+          <!-- Comentários -->
+          <div class="comments-section">
+            <div class="comment">
+              <img src="src/images/profile7.jpg" alt="Rafael Santos">
+              <div class="comment-content">
+                <strong>Rafael Santos</strong>
+                <p>@Lucas Almeida, vou priorizar isso hoje mesmo!</p>
+                <div class="comment-actions">
+                  <span>2h</span>
+                  <button class="like-comment"><i class="fa-regular fa-heart"></i> 2</button>
+                  <button class="reply-btn">Responder</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="comment">
+              <img src="src/images/profile4.jpg" alt="Juliana Costa">
+              <div class="comment-content">
+                <strong>Juliana Costa</strong>
+                <p>@Rafael Santos preciso do status até às 16h para reportar ao diretor.</p>
+                <div class="comment-actions">
+                  <span>1h</span>
+                  <button class="like-comment"><i class="fa-regular fa-heart"></i> 1</button>
+                  <button class="reply-btn">Responder</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="add-comment">
+              <img src="src/images/profile2.jpg" alt="Seu perfil">
+              <div class="comment-input">
+                <input type="text" placeholder="Adicione um comentário...">
+                <button class="post-comment">Publicar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="kanban-card" draggable="true" data-id="2">
+          <div class="card-header">
+            <span class="priority medium">Média Prioridade</span>
+            <span class="deadline">Vence amanhã</span>
+          </div>
+          <h3>Mudanças nos termos</h3>
+          <p>Atualizando os termos... @Helena Martins pode revisar?</p>
+          <div class="card-tags">
+            <span class="tag">Documentação</span>
+            <span class="tag">Jurídico</span>
+          </div>
+          <div class="card-footer">
+            <div class="user-info">
+              <img src="src/images/profile7.jpg" alt="User">
+              <span>Rafael Santos</span>
+            </div>
+            <div class="reactions">
+              <span class="reaction-count">5</span>
+              <button class="reaction-btn" data-card="2"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+          
+          <!-- Comentários -->
+          <div class="comments-section">
+            <div class="comment">
+              <img src="src/images/profile1.jpg" alt="Helena Martins">
+              <div class="comment-content">
+                <strong>Helena Martins</strong>
+                <p>@Rafael Santos já revisei e enviei para o jurídico.</p>
+                <div class="comment-actions">
+                  <span>3h</span>
+                  <button class="like-comment"><i class="fa-regular fa-heart"></i> 3</button>
+                  <button class="reply-btn">Responder</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="comment">
+              <img src="src/images/profile5.jpg" alt="Mariana Silva">
+              <div class="comment-content">
+                <strong>Mariana Silva</strong>
+                <p>@Helena Martins o jurídico já respondeu?</p>
+                <div class="comment-actions">
+                  <span>2h</span>
+                  <button class="like-comment"><i class="fa-regular fa-heart"></i> 1</button>
+                  <button class="reply-btn">Responder</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="add-comment">
+              <img src="src/images/profile2.jpg" alt="Seu perfil">
+              <div class="comment-input">
+                <input type="text" placeholder="Adicione um comentário...">
+                <button class="post-comment">Publicar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progresso -->
+    <div class="kanban-column" data-id="2">
+      <div class="kanban-title">
+        <h2>Progresso</h2>
+        <span class="column-count">2</span>
+        <button class="add-card"><i class="fa-solid fa-plus"></i></button>
+      </div>
+      <div class="kanban-cards">
+        <div class="kanban-card" draggable="true" data-id="3">
+          <div class="card-header">
+            <span class="priority high">Alta Prioridade</span>
+            <span class="deadline">Vence em 2 dias</span>
+          </div>
+          <h3>Implementar nova API de login</h3>
+          <p>Integrando novo provedor. @Camila Souza preciso credenciais.</p>
+          <div class="card-tags">
+            <span class="tag">Backend</span>
+            <span class="tag">Segurança</span>
+          </div>
+          <div class="card-footer">
+            <div class="user-info">
+              <img src="src/images/profile3.jpg" alt="User">
+              <span>Laura Ferreira</span>
+            </div>
+            <div class="reactions">
+              <span class="reaction-count">7</span>
+              <button class="reaction-btn" data-card="3"><i class="fa-solid fa-heart"></i></button>
+            </div>
+          </div>
+          
+          <!-- Comentários -->
+          <div class="comments-section">
+            <div class="comment">
+              <img src="src/images/profile2.jpg" alt="Camila Souza">
+              <div class="comment-content">
+                <strong>Camila Souza</strong>
+                <p>@Laura Ferreira enviei as credenciais por email.</p>
+                <div class="comment-actions">
+                  <span>5h</span>
+                  <button class="like-comment"><i class="fa-solid fa-heart"></i> 4</button>
+                  <button class="reply-btn">Responder</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="comment">
+              <img src="src/images/profile8.jpg" alt="Pedro Lima">
+              <div class="comment-content">
+                <strong>Pedro Lima</strong>
+                <p>@Laura Ferreira preciso testar assim que estiver pronto!</p>
+                <div class="comment-actions">
+                  <span>2h</span>
+                  <button class="like-comment"><i class="fa-regular fa-heart"></i> 2</button>
+                  <button class="reply-btn">Responder</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="add-comment">
+              <img src="src/images/profile2.jpg" alt="Seu perfil">
+              <div class="comment-input">
+                <input type="text" placeholder="Adicione um comentário...">
+                <button class="post-comment">Publicar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="kanban-card" draggable="true" data-id="4">
+          <div class="card-header">
+            <span class="priority low">Baixa Prioridade</span>
+            <span class="deadline">Vence em 5 dias</span>
+          </div>
+          <h3>Redesign da página de perfil</h3>
+          <p>Atualizando UI conforme guideline. @Mariana Silva alinhar cores?</p>
+          <div class="card-tags">
+            <span class="tag">Frontend</span>
+            <span class="tag">UI/UX</span>
+          </div>
+          <div class="card-footer">
+            <div class="user-info">
+              <img src="src/images/profile4.jpg" alt="User">
+              <span>Juliana Costa</span>
+            </div>
+            <div class="reactions">
+              <span class="reaction-count">4</span>
+              <button class="reaction-btn" data-card="4"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+          
+          <!-- Comentários -->
+          <div class="comments-section">
+            <div class="comment">
+              <img src="src/images/profile5.jpg" alt="Mariana Silva">
+              <div class="comment-content">
+                <strong>Mariana Silva</strong>
+                <p>@Juliana Costa sim! Tenho uma paleta nova.</p>
+                <div class="comment-actions">
+                  <span>4h</span>
+                  <button class="like-comment"><i class="fa-regular fa-heart"></i> 3</button>
+                  <button class="reply-btn">Responder</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="comment">
+              <img src="src/images/profile1.jpg" alt="Helena Martins">
+              <div class="comment-content">
+                <strong>Helena Martins</strong>
+                <p>@Juliana Costa manter acessibilidade nas cores!</p>
+                <div class="comment-actions">
+                  <span>3h</span>
+                  <button class="like-comment"><i class="fa-solid fa-heart"></i> 5</button>
+                  <button class="reply-btn">Responder</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="add-comment">
+              <img src="src/images/profile2.jpg" alt="Seu perfil">
+              <div class="comment-input">
+                <input type="text" placeholder="Adicione um comentário...">
+                <button class="post-comment">Publicar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Finalizado -->
+    <div class="kanban-column" data-id="3">
+      <div class="kanban-title">
+        <h2>Finalizado</h2>
+        <span class="column-count">1</span>
+        <button class="add-card"><i class="fa-solid fa-plus"></i></button>
+      </div>
+      <div class="kanban-cards">
+        <div class="kanban-card" draggable="true" data-id="5">
+          <div class="card-header">
+            <span class="priority completed">Concluído</span>
+            <span class="deadline">Entregue ontem</span>
+          </div>
+          <h3>Trabalho equipe - Mobile</h3>
+          <p>Corrigidos problemas em mobile. @Pedro Lima pode fazer QA?</p>
+          <div class="card-tags">
+            <span class="tag">Mobile</span>
+            <span class="tag">Frontend</span>
+          </div>
+          <div class="card-footer">
+            <div class="user-info">
+              <img src="src/images/profile2.jpg" alt="User">
+              <span>Camila Souza</span>
+            </div>
+            <div class="reactions">
+              <span class="reaction-count">8</span>
+              <button class="reaction-btn" data-card="5"><i class="fa-solid fa-heart"></i></button>
+            </div>
+          </div>
+          
+          <!-- Comentários -->
+          <div class="comments-section">
+            <div class="comment">
+              <img src="src/images/profile8.jpg" alt="Pedro Lima">
+              <div class="comment-content">
+                <strong>Pedro Lima</strong>
+                <p>@Camila Souza testado em 5 dispositivos diferentes. Tudo aprovado! ✅</p>
+                <div class="comment-actions">
+                  <span>1d</span>
+                  <button class="like-comment"><i class="fa-solid fa-heart"></i> 6</button>
+                  <button class="reply-btn">Responder</button>
+                </div>
+                
+                <!-- Resposta -->
+                <div class="comment-reply">
+                  <img src="src/images/profile2.jpg" alt="Camila Souza">
+                  <div class="comment-content">
+                    <strong>Camila Souza</strong>
+                    <p>@Pedro Lima perfeito! Obrigada pelo teste.</p>
+                    <div class="comment-actions">
+                      <span>23h</span>
+                      <button class="like-comment"><i class="fa-regular fa-heart"></i> 3</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="add-comment">
+              <img src="src/images/profile2.jpg" alt="Seu perfil">
+              <div class="comment-input">
+                <input type="text" placeholder="Adicione um comentário...">
+                <button class="post-comment">Publicar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Adiado -->
+    <div class="kanban-column" data-id="4">
+      <div class="kanban-title">
+        <h2>Adiado</h2>
+        <span class="column-count">2</span>
+        <button class="add-card"><i class="fa-solid fa-plus"></i></button>
+      </div>
+      <div class="kanban-cards">
+        <div class="kanban-card" draggable="true" data-id="6">
+          <div class="card-header">
+            <span class="priority low">Baixa Prioridade</span>
+            <span class="deadline">Sem prazo</span>
+          </div>
+          <h3>Atualizar documentação da API</h3>
+          <p>Precisamos atualizar a documentação. @Lucas Almeida pode liderar?</p>
+          <div class="card-tags">
+            <span class="tag">Documentação</span>
+            <span class="tag">API</span>
+          </div>
+          <div class="card-footer">
+            <div class="user-info">
+              <img src="src/images/profile1.jpg" alt="User">
+              <span>Helena Martins</span>
+            </div>
+            <div class="reactions">
+              <span class="reaction-count">2</span>
+              <button class="reaction-btn" data-card="6"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+          
+          <!-- Comentários -->
+          <div class="comments-section">
+            <div class="comment">
+              <img src="src/images/profile6.jpg" alt="Lucas Almeida">
+              <div class="comment-content">
+                <strong>Lucas Almeida</strong>
+                <p>@Helena Martins posso sim, depois da task crítica</p>
+                <div class="comment-actions">
+                  <span>4h</span>
+                  <button class="like-comment"><i class="fa-regular fa-heart"></i> 1</button>
+                  <button class="reply-btn">Responder</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="comment">
+              <img src="src/images/profile3.jpg" alt="Laura Ferreira">
+              <div class="comment-content">
+                <strong>Laura Ferreira</strong>
+                <p>@Lucas Almeida eu posso ajudar depois da API de login!</p>
+                <div class="comment-actions">
+                  <span>2h</span>
+                  <button class="like-comment"><i class="fa-regular fa-heart"></i> 2</button>
+                  <button class="reply-btn">Responder</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="add-comment">
+              <img src="src/images/profile2.jpg" alt="Seu perfil">
+              <div class="comment-input">
+                <input type="text" placeholder="Adicione um comentário...">
+                <button class="post-comment">Publicar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="kanban-card" draggable="true" data-id="7">
+          <div class="card-header">
+            <span class="priority medium">Média Prioridade</span>
+            <span class="deadline">Adiado para próxima sprint</span>
+          </div>
+          <h3>Implementar dark mode</h3>
+          <p>Os usuários estão pedindo modo escuro. @Mariana Silva podemos planejar isso?</p>
+          <div class="card-tags">
+            <span class="tag">UI/UX</span>
+            <span class="tag">Frontend</span>
+          </div>
+          <div class="card-footer">
+            <div class="user-info">
+              <img src="src/images/profile8.jpg" alt="User">
+              <span>Pedro Lima</span>
+            </div>
+            <div class="reactions">
+              <span class="reaction-count">5</span>
+              <button class="reaction-btn" data-card="7"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+          
+          <!-- Comentários -->
+          <div class="comments-section">
+            <div class="comment">
+              <img src="src/images/profile5.jpg" alt="Mariana Silva">
+              <div class="comment-content">
+                <strong>Mariana Silva</strong>
+                <p>@Pedro Lima já tenho um protótipo pronto! Vou compartilhar no Figma.</p>
+                <div class="comment-actions">
+                  <span>3h</span>
+                  <button class="like-comment"><i class="fa-regular fa-heart"></i> 3</button>
+                  <button class="reply-btn">Responder</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="comment">
+              <img src="src/images/profile4.jpg" alt="Juliana Costa">
+              <div class="comment-content">
+                <strong>Juliana Costa</strong>
+                <p>@Mariana Silva adoraria ajudar com isso depois do redesign do perfil!</p>
+                <div class="comment-actions">
+                  <span>1h</span>
+                  <button class="like-comment"><i class="fa-regular fa-heart"></i> 2</button>
+                  <button class="reply-btn">Responder</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="add-comment">
+              <img src="src/images/profile2.jpg" alt="Seu perfil">
+              <div class="comment-input">
+                <input type="text" placeholder="Adicione um comentário...">
+                <button class="post-comment">Publicar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Popup -->
+  <div class="popup-overlay hidden">
+    <div class="popup-card">
+      <h3>Nova Tarefa</h3>
+      
+      <div class="input-group">
+        <label for="task-title">Título</label>
+        <input type="text" id="task-title" placeholder="Digite o título da tarefa">
+      </div>
+      
+      <div class="input-group">
+        <label for="task-desc">Descrição</label>
+        <textarea id="task-desc" placeholder="Digite a descrição da tarefa"></textarea>
+      </div>
+      
+      <div class="input-group">
+        <label for="task-priority">Prioridade:</label>
+        <select id="task-priority">
+          <option value="high">Alta</option>
+          <option value="medium">Média</option>
+          <option value="low">Baixa</option>
+        </select>
+      </div>
+      
+      <div class="input-group">
+        <label for="task-deadline">Prazo:</label>
+        <input type="date" id="task-deadline">
+      </div>
+      
+      <div class="input-group">
+        <label for="task-tags">Tags (separadas por vírgula):</label>
+        <input type="text" id="task-tags" placeholder="ex: Frontend, Urgente, API">
+      </div>
+      
+      <div class="input-group">
+        <label for="task-user">Atribuir a:</label>
+        <div class="custom-select">
+          <select id="task-user">
+            <option value="profile1.jpg" data-img="src/images/profile1.jpg">Helena Martins</option>
+            <option value="profile2.jpg" data-img="src/images/profile2.jpg">Camila Souza</option>
+            <option value="profile3.jpg" data-img="src/images/profile3.jpg">Laura Ferreira</option>
+            <option value="profile4.jpg" data-img="src/images/profile4.jpg">Juliana Costa</option>
+            <option value="profile5.jpg" data-img="src/images/profile5.jpg">Mariana Silva</option>
+            <option value="profile6.jpg" data-img="src/images/profile6.jpg">Lucas Almeida</option>
+            <option value="profile7.jpg" data-img="src/images/profile7.jpg">Rafael Santos</option>
+            <option value="profile8.jpg" data-img="src/images/profile8.jpg">Pedro Lima</option>
+          </select>
+          <div class="select-arrow"></div>
+        </div>
+      </div>
+
+      <div class="popup-actions">
+        <button id="cancel">Cancelar</button>
+        <button id="save">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Emoji Picker -->
+  <div class="emoji-picker hidden">
+    <div class="emoji-header">
+      <span>Reações</span>
+      <button class="close-emoji"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="emoji-grid">
+      <button class="emoji-btn" data-emoji="❤️">❤️</button>
+      <button class="emoji-btn" data-emoji="🔥">🔥</button>
+      <button class="emoji-btn" data-emoji="👍">👍</button>
+      <button class="emoji-btn" data-emoji="👎">👎</button>
+      <button class="emoji-btn" data-emoji="😄">😄</button>
+      <button class="emoji-btn" data-emoji="😮">😮</button>
+      <button class="emoji-btn" data-emoji="😢">😢</button>
+      <button class="emoji-btn" data-emoji="😡">😡</button>
+    </div>
+  </div>
+
+  <!-- Botão Flutuante -->
+  <button class="floating-btn">
+    <i class="fas fa-plus"></i>
+  </button>
+
+  <script src="src/javascript/script.js"></script>
+</body>
+</html>
