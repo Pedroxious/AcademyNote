@@ -10,28 +10,52 @@
 :root {
   --bg-primary: #1a365d;
   --bg-secondary: #2a4365;
-  --bg-card: rgba(255,255,255,0.2);
-  --bg-header: rgba(255,255,255,0.05);
+  --bg-card: rgba(255,255,255,0.08);
+  --bg-card-hover: rgba(255,255,255,0.12);
+  --bg-header: rgba(255,255,255,0.03);
   --text-primary: #fff;
-  --text-secondary: rgba(255,255,255,0.85);
-  --border-color: rgba(255,255,255,0.1);
-  --shadow-color: rgba(0,0,0,0.2);
+  --text-secondary: rgba(255,255,255,0.75);
+  --border-color: rgba(255,255,255,0.08);
+  --border-color-light: rgba(255,255,255,0.12);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.15);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.2);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.25);
+  --shadow-xl: 0 12px 32px rgba(0,0,0,0.3);
   --accent-color: #9AC8FF;
+  --accent-light: #b8d9ff;
   --popup-bg: rgba(255,255,255,0.95);
   --popup-text: #333;
   --popup-border: #e1e5eb;
+  /* Priority colors */
+  --priority-high: #ef4444;
+  --priority-medium: #f59e0b;
+  --priority-low: #10b981;
+  --priority-completed: #8b5cf6;
+  /* Category colors */
+  --category-frontend: #3b82f6;
+  --category-backend: #8b5cf6;
+  --category-ui-ux: #ec4899;
+  --category-docs: #06b6d4;
+  --category-security: #ef4444;
+  --category-mobile: #f97316;
 }
 
 body.dark-mode {
   --bg-primary: #0a0f1d;
   --bg-secondary: #111827;
-  --bg-card: rgba(255,255,255,0.1);
-  --bg-header: rgba(255,255,255,0.03);
+  --bg-card: rgba(255,255,255,0.05);
+  --bg-card-hover: rgba(255,255,255,0.08);
+  --bg-header: rgba(255,255,255,0.02);
   --text-primary: #e2e8f0;
-  --text-secondary: rgba(226,232,240,0.8);
-  --border-color: rgba(255,255,255,0.08);
-  --shadow-color: rgba(0,0,0,0.3);
+  --text-secondary: rgba(226,232,240,0.7);
+  --border-color: rgba(255,255,255,0.05);
+  --border-color-light: rgba(255,255,255,0.08);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+  --shadow-xl: 0 12px 32px rgba(0,0,0,0.6);
   --accent-color: #7ab0ff;
+  --accent-light: #8fc0ff;
   --popup-bg: #1e293b;
   --popup-text: #e2e8f0;
   --popup-border: #334155;
@@ -52,70 +76,88 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 32px;
+  padding: 12px 24px;
   background: var(--bg-header);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: var(--shadow-sm);
 }
 
 .header-left {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .logo { 
-  width: 40px; 
-  height: 40px;
+  width: 36px; 
+  height: 36px;
   object-fit: cover;
+  border-radius: 8px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.kanban-header h1 {
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .header-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
 .header-btn {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 16px;
-  border-radius: 8px;
+  padding: 8px 14px;
+  border-radius: 10px;
   text-decoration: none;
   color: var(--text-primary);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   font-weight: 500;
-  border: none;
+  border: 1px solid transparent;
   background: transparent;
   cursor: pointer;
   white-space: nowrap;
 }
 
 .header-btn:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.08);
+  border-color: var(--border-color-light);
+  transform: translateY(-1px);
 }
 
 .header-btn.active {
-  background: rgba(255,255,255,0.2);
+  background: rgba(154,200,255,0.15);
+  border-color: var(--border-color-light);
 }
 
 .user-menu {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 12px;
+  padding: 6px 12px;
   border-radius: 20px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.08);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  border: 1px solid var(--border-color);
 }
 
 .user-menu:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .user-avatar {
@@ -123,38 +165,41 @@ body {
   height: 32px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.2);
 }
 
 /* Notification Center */
 .notification-center {
   position: fixed;
-  top: 90px;
+  top: 85px;
   right: 20px;
   z-index: 1000;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  pointer-events: none;
 }
 
 .notification {
   background: var(--popup-bg);
   color: var(--popup-text);
   padding: 12px 16px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  animation: slideIn 0.3s ease;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+  animation: slideIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   font-size: 14px;
-  max-width: 300px;
+  max-width: 320px;
   border: 1px solid var(--border-color);
+  pointer-events: auto;
 }
 
 @keyframes slideIn {
   from {
-    transform: translateX(100%);
+    transform: translateX(400px) translateZ(0);
     opacity: 0;
   }
   to {
-    transform: translateX(0);
+    transform: translateX(0) translateZ(0);
     opacity: 1;
   }
 }
@@ -162,17 +207,17 @@ body {
 /* Kanban Layout */
 .kanban {
   display: flex;
-  gap: 20px;
-  padding: 20px;
+  gap: 16px;
+  padding: 16px 12px;
   flex: 1;
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,0.2) transparent;
+  scrollbar-color: rgba(255,255,255,0.15) transparent;
 }
 
 .kanban::-webkit-scrollbar {
-  height: 8px;
+  height: 6px;
 }
 
 .kanban::-webkit-scrollbar-track {
@@ -180,64 +225,67 @@ body {
 }
 
 .kanban::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.2);
-  border-radius: 4px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 3px;
 }
 
 .kanban::-webkit-scrollbar-thumb:hover {
-  background: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.25);
 }
 
 .kanban-column {
-  flex: 1;
-  min-width: 350px;
-  max-width: 400px;
+  flex: 0 0 320px;
   background: var(--bg-card);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
   border-radius: 16px;
   padding: 16px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
   border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
 }
 
 .kanban-column:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px var(--shadow-color);
+  transform: translateY(-4px);
+  border-color: var(--border-color-light);
+  box-shadow: var(--shadow-md);
+  background: var(--bg-card-hover);
 }
 
 .kanban-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--border-color);
 }
 
 .kanban-title h2 { 
-  font-size: 18px; 
+  font-size: 16px; 
   font-weight: 600;
+  letter-spacing: -0.5px;
 }
 
 .column-count {
-  background: rgba(255,255,255,0.2);
+  background: rgba(154,200,255,0.2);
   padding: 4px 10px;
   border-radius: 12px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
+  color: var(--accent-color);
 }
 
 .add-card {
   background: transparent;
-  border: none;
-  color: var(--text-primary);
-  font-size: 18px;
+  border: 1px solid var(--border-color);
+  color: var(--accent-color);
+  font-size: 16px;
   cursor: pointer;
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -245,23 +293,25 @@ body {
 }
 
 .add-card:hover {
-  background: rgba(255,255,255,0.2);
-  transform: scale(1.1);
+  background: rgba(154,200,255,0.1);
+  border-color: var(--accent-color);
+  transform: scale(1.08) rotate(90deg);
+  box-shadow: 0 0 12px rgba(154,200,255,0.2);
 }
 
 .kanban-cards {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   flex: 1;
   min-height: 100px;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,0.2) transparent;
+  scrollbar-color: rgba(255,255,255,0.15) transparent;
 }
 
 .kanban-cards::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 .kanban-cards::-webkit-scrollbar-track {
@@ -269,159 +319,267 @@ body {
 }
 
 .kanban-cards::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.2);
-  border-radius: 3px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 2px;
 }
 
 .kanban-cards::-webkit-scrollbar-thumb:hover {
-  background: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.25);
 }
 
 /* Cards */
 .kanban-card {
-  background: var(--bg-card);
-  backdrop-filter: blur(8px);
-  padding: 20px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
+  backdrop-filter: blur(12px);
+  padding: 14px;
   border-radius: 12px;
   cursor: grab;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
   border: 1px solid var(--border-color);
   position: relative;
+  overflow: hidden;
 }
+
+.kanban-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-color), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.kanban-card:hover::before {
+  opacity: 1;
+}
+
 .kanban-card:active { 
   cursor: grabbing; 
-  transform: scale(1.02) rotate(2deg);
-  box-shadow: 0 8px 20px var(--shadow-color);
+  transform: scale(1.03) rotate(1deg);
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.08));
 }
+
 .kanban-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 16px var(--shadow-color);
-  background: rgba(255,255,255,0.25);
+  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.08));
+  border-color: var(--border-color-light);
 }
 
 .card-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 10px;
 }
 
+.card-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+/* Priority Badge */
 .priority {
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 11px;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: fit-content;
 }
 
 .priority.high {
-  background: rgba(239, 68, 68, 0.3);
-  color: #fef2f2;
+  background: rgba(239, 68, 68, 0.25);
+  color: #fecaca;
+  border: 1px solid rgba(239, 68, 68, 0.4);
 }
 
 .priority.medium {
-  background: rgba(245, 158, 11, 0.3);
-  color: #fffbeb;
+  background: rgba(245, 158, 11, 0.25);
+  color: #fde047;
+  border: 1px solid rgba(245, 158, 11, 0.4);
 }
 
 .priority.low {
-  background: rgba(16, 185, 129, 0.3);
-  color: #f0fdf4;
+  background: rgba(16, 185, 129, 0.25);
+  color: #86efac;
+  border: 1px solid rgba(16, 185, 129, 0.4);
 }
 
 .priority.completed {
-  background: rgba(139, 92, 246, 0.3);
-  color: #faf5ff;
+  background: rgba(139, 92, 246, 0.25);
+  color: #d8b4fe;
+  border: 1px solid rgba(139, 92, 246, 0.4);
 }
 
 .deadline {
-  font-size: 11px;
-  opacity: 0.8;
+  font-size: 10px;
+  opacity: 0.65;
+  padding: 2px 8px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 6px;
+  flex-shrink: 0;
 }
 
 .kanban-card h3 { 
-  font-size: 16px; 
-  margin-bottom: 12px;
-  font-weight: 600;
-  line-height: 1.4;
-  color: var(--text-primary);
-}
-.kanban-card p { 
   font-size: 14px; 
-  opacity: 0.85;
+  margin-bottom: 8px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.kanban-card p { 
+  font-size: 12px; 
+  opacity: 0.75;
   line-height: 1.4;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   color: var(--text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .kanban-card p .mention {
   color: var(--accent-color);
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .kanban-card p .mention:hover {
   text-decoration: underline;
+  filter: brightness(1.2);
 }
 
+/* Tags Container */
 .card-tags {
   display: flex;
-  gap: 6px;
-  margin-bottom: 12px;
+  gap: 4px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
+/* Category Tags */
 .tag {
-  background: rgba(255,255,255,0.15);
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 11px;
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 10px;
   font-weight: 500;
+  background: rgba(255,255,255,0.1);
   color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: var(--border-color-light);
+  transform: translateY(-1px);
+}
+
+/* Tag Type Styling */
+.tag[data-category="frontend"] {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.tag[data-category="backend"] {
+  background: rgba(139, 92, 246, 0.15);
+  color: #d8b4fe;
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.tag[data-category="ui-ux"] {
+  background: rgba(236, 72, 153, 0.15);
+  color: #f472b6;
+  border-color: rgba(236, 72, 153, 0.3);
+}
+
+.tag[data-category="docs"] {
+  background: rgba(6, 182, 212, 0.15);
+  color: #67e8f9;
+  border-color: rgba(6, 182, 212, 0.3);
+}
+
+.tag[data-category="security"] {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.tag[data-category="mobile"] {
+  background: rgba(249, 115, 22, 0.15);
+  color: #fed7aa;
+  border-color: rgba(249, 115, 22, 0.3);
 }
 
 .card-footer { 
   display: flex; 
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
+  margin-bottom: 10px;
 }
 
 .user-info {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .user-info img { 
-  width: 28px; 
-  height: 28px; 
+  width: 24px; 
+  height: 24px; 
   border-radius: 50%; 
-  border: 2px solid rgba(255,255,255,0.3);
+  border: 2px solid rgba(255,255,255,0.25);
   transition: all 0.2s;
+  object-fit: cover;
 }
 
 .user-info img:hover {
-  transform: scale(1.1);
-  border-color: rgba(255,255,255,0.6);
+  transform: scale(1.15);
+  border-color: var(--accent-color);
+  filter: drop-shadow(0 0 8px rgba(154,200,255,0.4));
 }
 
 .user-info span {
-  font-size: 12px;
-  opacity: 0.9;
+  font-size: 11px;
+  opacity: 0.8;
   color: var(--text-primary);
 }
 
 .reactions {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
 }
 
 .reaction-count {
-  font-size: 12px;
-  opacity: 0.8;
+  font-size: 11px;
+  opacity: 0.65;
   color: var(--text-primary);
+  min-width: 16px;
 }
 
 .reaction-btn {
@@ -430,32 +588,64 @@ body {
   color: var(--text-primary);
   cursor: pointer;
   font-size: 14px;
-  opacity: 0.7;
-  transition: all 0.2s ease;
-  padding: 4px;
+  opacity: 0.6;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  padding: 2px;
 }
 
 .reaction-btn:hover {
   opacity: 1;
-  transform: scale(1.2);
+  transform: scale(1.3) rotate(15deg);
 }
 
 .reaction-btn.active {
-  color: #ff375f;
+  color: #ff4081;
   opacity: 1;
+  animation: heartBeat 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Comments Section */
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.3); }
+  50% { transform: scale(1.1); }
+}
+
+/* Card Expand Button */
+.card-expand {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  font-size: 10px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.2s;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.card-expand:hover {
+  opacity: 1;
+  background: rgba(154,200,255,0.1);
+}
+
+/* Comments Section - Collapsed by default */
 .comments-section {
+  display: none;
   border-top: 1px solid var(--border-color);
-  padding-top: 12px;
+  padding-top: 10px;
   margin-top: 8px;
+}
+
+.comments-section.visible {
+  display: block;
 }
 
 .comment {
   display: flex;
-  gap: 10px;
-  margin-bottom: 12px;
+  gap: 8px;
+  margin-bottom: 10px;
   animation: fadeIn 0.3s ease;
 }
 
@@ -471,11 +661,12 @@ body {
 }
 
 .comment img {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   flex-shrink: 0;
   object-fit: cover;
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
 .comment-content {
@@ -483,30 +674,30 @@ body {
 }
 
 .comment-content strong {
-  font-size: 13px;
-  margin-right: 6px;
+  font-size: 12px;
+  margin-right: 4px;
   color: var(--text-primary);
 }
 
 .comment-content p {
-  font-size: 13px;
-  margin: 4px 0;
-  line-height: 1.4;
-  opacity: 0.9;
+  font-size: 11px;
+  margin: 2px 0;
+  line-height: 1.3;
+  opacity: 0.8;
   color: var(--text-secondary);
 }
 
 .comment-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-top: 4px;
+  gap: 10px;
+  margin-top: 3px;
 }
 
 .comment-actions span,
 .comment-actions button {
-  font-size: 11px;
-  opacity: 0.7;
+  font-size: 10px;
+  opacity: 0.6;
   color: var(--text-primary);
   background: none;
   border: none;
@@ -519,28 +710,28 @@ body {
 }
 
 .like-comment.active {
-  color: #ff375f;
+  color: #ff4081;
 }
 
 .comment-reply {
   display: flex;
-  gap: 10px;
-  margin-top: 8px;
-  margin-left: 20px;
-  padding-left: 10px;
+  gap: 8px;
+  margin-top: 6px;
+  margin-left: 16px;
+  padding-left: 8px;
   border-left: 2px solid var(--border-color);
 }
 
 .add-comment {
   display: flex;
-  gap: 10px;
-  margin-top: 12px;
+  gap: 8px;
+  margin-top: 10px;
   align-items: center;
 }
 
 .add-comment img {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   flex-shrink: 0;
   object-fit: cover;
@@ -549,58 +740,60 @@ body {
 .comment-input {
   flex: 1;
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
 .comment-input input {
   flex: 1;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.08);
   border: 1px solid var(--border-color);
-  border-radius: 18px;
-  padding: 8px 12px;
+  border-radius: 16px;
+  padding: 6px 10px;
   color: var(--text-primary);
-  font-size: 13px;
+  font-size: 11px;
   outline: none;
   transition: all 0.2s;
 }
 
 .comment-input input:focus {
   border-color: var(--accent-color);
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.12);
+  box-shadow: 0 0 10px rgba(154,200,255,0.2);
 }
 
 .comment-input input::placeholder {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.5);
 }
 
 .post-comment {
   background: var(--accent-color);
   color: #13295F;
   border: none;
-  border-radius: 12px;
-  padding: 6px 12px;
-  font-size: 12px;
-  font-weight: 500;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 10px;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   white-space: nowrap;
 }
 
 .post-comment:hover {
-  background: #85b8ff;
-  transform: translateY(-1px);
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(154,200,255,0.3);
 }
 
-/* Popup */
+/* Modal/Popup */
 .popup-overlay {
   position: fixed;
   top:0; left:0; right:0; bottom:0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
@@ -613,29 +806,33 @@ body {
 
 .popup-card {
   background: var(--popup-bg);
-  padding: 24px;
-  border-radius: 16px;
+  padding: 28px;
+  border-radius: 20px;
   color: var(--popup-text);
-  width: 450px;
+  width: 100%;
+  max-width: 480px;
   max-height: 90vh;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  transform: translateY(20px);
-  transition: transform 0.3s ease;
-  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-xl);
+  transform: scale(0.95) translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid var(--popup-border);
 }
 
 .popup-overlay:not(.hidden) .popup-card {
-  transform: translateY(0);
+  transform: scale(1) translateY(0);
 }
 
 .popup-card h3 {
   font-size: 20px;
-  font-weight: 600;
-  color: var(--accent-color);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 8px;
   text-align: center;
 }
@@ -643,13 +840,14 @@ body {
 .input-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .input-group label {
-  font-weight: 500;
+  font-weight: 600;
   color: var(--popup-text);
-  font-size: 14px;
+  font-size: 13px;
+  opacity: 0.9;
 }
 
 .popup-card input, 
@@ -657,12 +855,12 @@ body {
 .popup-card select {
   padding: 12px;
   border: 2px solid var(--popup-border);
-  border-radius: 8px;
+  border-radius: 10px;
   outline: none;
   width: 100%;
   font-size: 14px;
   transition: all 0.2s ease;
-  background: var(--popup-bg);
+  background: rgba(0,0,0,0.02);
   color: var(--popup-text);
 }
 
@@ -670,15 +868,16 @@ body {
 .popup-card textarea:focus,
 .popup-card select:focus {
   border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px rgba(154, 200, 255, 0.2);
+  box-shadow: 0 0 0 4px rgba(154, 200, 255, 0.15);
+  background: rgba(154,200,255,0.02);
 }
 
 .popup-card textarea {
-  min-height: 80px;
+  min-height: 90px;
   resize: vertical;
 }
 
-/* Custom Select Styles */
+/* Custom Select */
 .custom-select {
   position: relative;
   width: 100%;
@@ -690,8 +889,8 @@ body {
   width: 100%;
   padding: 12px 16px 12px 48px;
   border: 2px solid var(--popup-border);
-  border-radius: 8px;
-  background-color: var(--popup-bg);
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0.02);
   font-size: 14px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -701,7 +900,7 @@ body {
 
 .custom-select select:focus {
   border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px rgba(154, 200, 255, 0.2);
+  box-shadow: 0 0 0 4px rgba(154, 200, 255, 0.15);
 }
 
 .select-arrow {
@@ -713,11 +912,15 @@ body {
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 6px solid #666;
+  border-top: 6px solid #999;
   pointer-events: none;
+  transition: all 0.2s;
 }
 
-/* User images in select options */
+.custom-select select:focus ~ .select-arrow {
+  border-top-color: var(--accent-color);
+}
+
 .custom-select::before {
   content: '';
   position: absolute;
@@ -731,22 +934,14 @@ body {
   background-position: center;
   z-index: 2;
   pointer-events: none;
-  border: 2px solid #fff;
+  border: 2px solid rgba(0,0,0,0.1);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 #task-user option {
   padding-left: 40px;
-  background-repeat: no-repeat;
-  background-position: 8px center;
-  background-size: 24px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  font-size: 14px;
 }
 
-/* Dynamic background images for selected option */
 #task-user option[value="profile1.jpg"] { background-image: url('src/images/profile1.jpg'); }
 #task-user option[value="profile2.jpg"] { background-image: url('src/images/profile2.jpg'); }
 #task-user option[value="profile3.jpg"] { background-image: url('src/images/profile3.jpg'); }
@@ -760,39 +955,42 @@ body {
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-top: 8px;
+  margin-top: 12px;
   padding-top: 16px;
-  border-top: 1px solid var(--popup-border);
+  border-top: 2px solid var(--popup-border);
 }
 
 .popup-actions button {
   border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
+  padding: 11px 24px;
+  border-radius: 10px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
-  transition: all 0.2s ease;
-  min-width: 100px;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  min-width: 110px;
 }
 
 #cancel { 
-  background: #f1f3f5; 
-  color: #495057;
+  background: #f1f5f9; 
+  color: #64748b;
+  border: 1px solid #e2e8f0;
 }
+
 #cancel:hover {
-  background: #e9ecef;
+  background: #e2e8f0;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 #save { 
-  background: var(--accent-color); 
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
   color: #13295F; 
 }
+
 #save:hover {
-  background: #85b8ff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(154, 200, 255, 0.4);
+  box-shadow: 0 8px 20px rgba(154, 200, 255, 0.3);
 }
 
 /* Emoji Picker */
@@ -801,18 +999,18 @@ body {
   bottom: 20px;
   right: 20px;
   background: var(--popup-bg);
-  border-radius: 12px;
-  padding: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: var(--shadow-lg);
   z-index: 1001;
-  transform: translateY(100px);
+  transform: translateY(120px) scale(0.9);
   opacity: 0;
-  transition: all 0.3s ease;
-  border: 1px solid var(--border-color);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid var(--popup-border);
 }
 
 .emoji-picker:not(.hidden) {
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
   opacity: 1;
 }
 
@@ -820,8 +1018,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-  font-weight: 500;
+  margin-bottom: 12px;
+  font-weight: 600;
   color: var(--popup-text);
 }
 
@@ -830,7 +1028,13 @@ body {
   border: none;
   font-size: 16px;
   cursor: pointer;
-  color: var(--text-secondary);
+  color: #999;
+  transition: all 0.2s;
+}
+
+.close-emoji:hover {
+  color: var(--popup-text);
+  transform: rotate(90deg);
 }
 
 .emoji-grid {
@@ -842,128 +1046,178 @@ body {
 .emoji-btn {
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 24px;
   cursor: pointer;
-  padding: 6px;
-  border-radius: 6px;
-  transition: all 0.2s;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  opacity: 0.7;
 }
 
 .emoji-btn:hover {
-  background: rgba(255,255,255,0.1);
-  transform: scale(1.2);
+  background: rgba(0,0,0,0.05);
+  transform: scale(1.3) rotate(10deg);
+  opacity: 1;
 }
 
-/* Reaction bubbles */
+/* Reaction Bubbles */
 .reaction-bubble {
   position: absolute;
-  background: rgba(255,255,255,0.9);
+  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
   border-radius: 20px;
-  padding: 4px 8px;
-  font-size: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 6px 10px;
+  font-size: 16px;
+  box-shadow: var(--shadow-md);
   display: flex;
   align-items: center;
   gap: 4px;
   z-index: 10;
-  animation: floatUp 1s ease forwards;
+  animation: floatUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 @keyframes floatUp {
   0% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
   100% {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translateY(-60px) scale(0.8);
   }
 }
 
 /* Floating Button */
 .floating-btn {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: 28px;
+  right: 28px;
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: linear(135deg, var(--accent-color), #13295F);
+  background: linear-gradient(135deg, var(--accent-color), #7ab0ff);
   border: none;
-  color: white;
-  font-size: 20px;
+  color: #13295F;
+  font-size: 22px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow-lg);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 999;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  font-weight: 600;
 }
 
 .floating-btn:hover {
-  transform: scale(1.1) rotate(90deg);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  transform: scale(1.12) rotate(90deg);
+  box-shadow: var(--shadow-xl);
 }
 
-/* Drag and drop animations */
+.floating-btn:active {
+  transform: scale(0.95);
+}
+
+/* Drag & Drop */
 .kanban-card.dragging {
-  opacity: 0.8;
-  transform: rotate(5deg) scale(1.05);
-  box-shadow: 0 10px 25px var(--shadow-color);
+  opacity: 0.7;
+  transform: rotate(4deg) scale(1.05);
+  box-shadow: var(--shadow-xl);
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.1));
 }
 
 .kanban-cards.drag-over {
-  background: rgba(255,255,255,0.1);
+  background: rgba(154,200,255,0.1);
   border-radius: 8px;
-  transition: background 0.3s ease;
+  transition: background 0.2s ease;
+  border: 1px dashed var(--border-color-light);
 }
 
-/* Responsivo */
-@media (max-width: 1200px) {
+/* Responsive Design */
+@media (max-width: 1400px) {
   .kanban {
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 14px;
+    padding: 14px 10px;
   }
   
   .kanban-column {
-    min-width: 320px;
-    max-width: 100%;
-    flex: 1 1 320px;
+    flex: 0 0 300px;
   }
 }
 
-@media (max-width: 992px) {
-  .kanban-column {
-    min-width: 280px;
-    flex: 1 1 280px;
+@media (max-width: 1024px) {
+  .kanban {
+    gap: 12px;
+    padding: 12px 8px;
   }
   
-  .header-right {
-    gap: 8px;
+  .kanban-column {
+    flex: 0 0 280px;
+  }
+  
+  .kanban-header {
+    padding: 10px 16px;
   }
   
   .header-btn {
-    padding: 8px 12px;
-    font-size: 14px;
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  
+  .kanban-header h1 {
+    font-size: 18px;
   }
 }
 
 @media (max-width: 768px) {
-  .kanban { 
-    flex-direction: column; 
+  .kanban {
+    flex-direction: column;
     padding: 12px;
-    gap: 16px;
+    gap: 12px;
   }
   
   .kanban-column {
-    min-width: auto;
-    max-width: 100%;
+    flex: 1;
+    min-width: 100%;
+  }
+  
+  .kanban-header {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+  
+  .header-left {
+    gap: 8px;
+  }
+  
+  .logo {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .kanban-header h1 {
+    font-size: 16px;
+  }
+  
+  .header-right {
+    gap: 4px;
+  }
+  
+  .header-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  
+  .header-btn span {
+    display: none;
+  }
+  
+  .user-menu span {
+    display: none;
   }
   
   .popup-card {
     width: 90%;
-    max-width: 340px;
+    max-width: 400px;
     padding: 20px;
   }
   
@@ -985,80 +1239,85 @@ body {
     grid-template-columns: repeat(8, 1fr);
   }
   
-  .header-right {
-    gap: 6px;
+  .floating-btn {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 20px;
   }
   
-  .header-btn span {
-    display: none;
+  .kanban-card {
+    padding: 12px;
   }
   
-  .user-menu span {
-    display: none;
+  .kanban-card h3 {
+    font-size: 13px;
+  }
+  
+  .kanban-card p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .kanban {
+    padding: 10px;
+    gap: 10px;
   }
   
   .kanban-header {
-    padding: 12px 16px;
+    padding: 8px 10px;
+    flex-wrap: wrap;
   }
   
-  .header-left h1 {
-    font-size: 18px;
+  .header-left {
+    gap: 6px;
+    order: 1;
+    width: 100%;
+    margin-bottom: 8px;
   }
-}
-
-@media (max-width: 576px) {
-  .header-left h1 {
-    font-size: 16px;
+  
+  .header-right {
+    order: 2;
+    width: 100%;
+    gap: 4px;
   }
   
   .logo {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
   }
   
-  .notification-center {
-    right: 10px;
-    left: 10px;
-    align-items: center;
+  .kanban-header h1 {
+    font-size: 14px;
   }
   
-  .notification {
-    max-width: 100%;
-    width: 100%;
+  .popup-card {
+    width: 95%;
+    padding: 16px;
   }
   
-  .floating-btn {
-    bottom: 16px;
-    right: 16px;
-    width: 48px;
-    height: 48px;
-    font-size: 18px;
+  .emoji-grid {
+    grid-template-columns: repeat(6, 1fr);
   }
-}
-
-/* Modo escuro para ícones específicos */
-body.dark-mode .reaction-btn:not(.active) {
-  color: var(--text-primary);
-}
-
-body.dark-mode .post-comment {
-  color: #13295F;
-}
-
-/* Melhorias de acessibilidade */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  
+  .kanban-title h2 {
+    font-size: 14px;
   }
-}
-
-/* Foco visível para acessibilidade */
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid var(--accent-color);
-  outline-offset: 2px;
+  
+  .kanban-card {
+    padding: 10px;
+  }
+  
+  .kanban-card h3 {
+    font-size: 12px;
+    -webkit-line-clamp: 1;
+  }
+  
+  .card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
 }
